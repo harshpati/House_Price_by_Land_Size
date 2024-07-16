@@ -19,7 +19,6 @@ public boolean isAddCity(CityMasterModel model)
 	} 
 	catch (Exception e) 
 	{
-		// TODO: handle exception
 		System.out.println("Error is "+e);
 		return false;
 	}
@@ -69,8 +68,6 @@ public int getCityIdByName(String cityName)
 	catch (Exception e) 
 	{
 		return -1;
-		
-		// TODO: handle exception
 	}
 	
 }
