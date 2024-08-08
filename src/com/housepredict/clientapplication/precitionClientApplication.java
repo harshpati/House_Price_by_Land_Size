@@ -130,14 +130,16 @@ public class precitionClientApplication {
 				cityName = input.nextLine();
 				result = cs.getCityIdByName(cityName);
 //				System.out.println(result);
-				List<String> areaName=aservice.areaList(result);
+				List<String> AreaName=aservice.areaList(result);
 				System.out.println("input area from given list");
-				for(String aname:areaName)
+				for(String aname:AreaName)
 				{
 					System.out.println(aname);
 				}
 				System.out.println("Enter Area Name");
-				String areaName1=input.nextLine();
+				String AreaName1 = input.nextLine();
+				int areaId=aservice.getAreaIdByName(AreaName1);
+				System.out.println("AreaID is "+areaId);
 				
 				
 				

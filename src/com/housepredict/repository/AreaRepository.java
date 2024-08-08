@@ -3,7 +3,6 @@ package com.housepredict.repository;
 import java.util.*;
 import com.housepredict.config.DBConfig;
 import com.housepredict.model.AreaMasterModel;
-import com.housepredict.model.CityMasterModel;
 
 public class AreaRepository extends DBConfig {
 	List<AreaMasterModel> list;
@@ -51,21 +50,22 @@ public class AreaRepository extends DBConfig {
 
 	public int getAreaIdByName(String AreaName) {
 		try {
-			AreaMasterModel model = new AreaMasterModel();
+			
 			stmt = conn.prepareStatement("select aid from areamaster where name=?");
-			stmt.setString(1, model.getAreaname());
-//				stmt.setString(2, model.getCityId());
-			if (rs.next()) {
-           
+            stmt.setString(1, AreaName);
+            
+            rs=stmt.executeQuery();
+			if (rs.next()) 
+			{
 				return rs.getInt(1);
-
-			} else {
-				return 0;
 			}
-		} catch (Exception e) {
-			return 0;
-			// TODO: handle exception
-		}
+			else
+				return 0;
+		    } catch (Exception e) {
+			System.out.println(e);
+			return 1;
+		
+		    }
 	}
 
 	public List<String> areaList(int cityId) {
@@ -95,6 +95,4 @@ public class AreaRepository extends DBConfig {
 	}
 }
 
-/*
- * if(!b) { return true; } else { return false; }
- */
+

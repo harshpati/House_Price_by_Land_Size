@@ -8,6 +8,7 @@ import com.housepredict.repository.AreaRepository;
 public class AreaService 
 {
 	AreaRepository areaRepo=new AreaRepository();
+	
 	public boolean isAddNewArea(AreaMasterModel model)
 	{
 	return 	areaRepo.isAddNewArea(model);
@@ -21,5 +22,9 @@ public class AreaService
 	public List<String> areaList(int cityId) {
 		return areaRepo.areaList(cityId);
 	}
-
+	
+	
+	public int getAreaIdByName(String AreaName) {
+		return areaRepo.getAreaIdByName(AreaName);
+	}
 }
